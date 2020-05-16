@@ -24,15 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import GopayFeature from './src/components/GopayFeature'
-
-const ExampleComponent = (props) => {
-  return(
-    <View>
-      <Text>Hello {props.title}</Text>
-    </View>
-  )
-}
+import Router from './src/config/router'
+import Navbar from './src/containers/organism/Navbar';
 // const App: () => React$Node = () => {
 //   return (
 //     <>
@@ -84,15 +77,8 @@ const ExampleComponent = (props) => {
 export default class App extends Component{
   render(){
     return(
-    <View>
-      <ExampleComponent title="CUKKK" />
-      <ExampleComponent title="COOKK" />
-      <View style={{flexDirection:"row"}}>
-        <GopayFeature Image={require('./src/assets/icon/pay.png')} title='Pay' />
-        <GopayFeature Image={require('./src/assets/icon/nearby.png')} title='Nearby'/>
-      </View>
-      <Text>Hello Worlds</Text>
-    </View>
+      // <Router />
+      <Navbar />
     )
   }
 }
