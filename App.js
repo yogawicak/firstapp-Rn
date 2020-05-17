@@ -77,8 +77,8 @@ import Navbar from './src/containers/organism/Navbar';
 export default class App extends Component{
   render(){
     return(
-      // <Router />
-      <Navbar />
+      <Router />
+      // <Navbar />
     )
   }
 }

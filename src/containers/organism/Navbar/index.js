@@ -4,6 +4,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import HomeIconNavbar from '../../../components/atoms/HomeIconNavbar'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Home from '../../pages/Home'
+import EmptyReport from '../../../components/molecules/EmptyReport'
+import JurnalIcon from '../../../assets/logo/svg/Group-347'
+import Topbar from '../../../components/molecules/TopBar'
 
 
 
@@ -14,22 +17,23 @@ const Navbar = () => {
         <NavigationContainer>
         <Tab.Navigator
           initialRouteName="Feed"
-          activeColor="#e91e63"
-          style={{ backgroundColor: 'tomato' }}
+          activeColor="#FFFFFF"
+          barStyle={{ backgroundColor: '#F7482E', justifyContent:'space-between' }}
         >
           <Tab.Screen
             name="Feed"
-            component={Home}
+            component={EmptyReport}
             options={{
-              tabBarLabel: 'Home',
+              tabBarLabel: 'Jurnal',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="home" color={color} size={26} />
+                <JurnalIcon size={26} color={color} />
+                // <MaterialCommunityIcons name="home" color={color} size={26} />
               ),
             }}
           />
           <Tab.Screen
             name="Notifications"
-            component={Home}
+            component={Topbar}
             options={{
               tabBarLabel: 'Updates',
               tabBarIcon: ({ color }) => (
@@ -39,6 +43,16 @@ const Navbar = () => {
           />
           <Tab.Screen
             name="Profile"
+            component={Home}
+            options={{
+              tabBarLabel: 'Profile',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="account" color={color} size={26} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="tess"
             component={Home}
             options={{
               tabBarLabel: 'Profile',
