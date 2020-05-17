@@ -1,24 +1,28 @@
 import React from 'react'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import HomeIconNavbar from '../../../components/atoms/HomeIconNavbar'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Home from '../../pages/Home'
 import EmptyReport from '../../../components/molecules/EmptyReport'
-import JurnalIcon from '../../../assets/logo/svg/Group-347'
+import JurnalIcon from '../../../assets/logo/svg/JournalIcon'
 import Topbar from '../../../components/molecules/TopBar'
+import Profile from '../../pages/Profile'
+// import HamburgerIcon from '../../../assets/logo/svg/HamburgerIcon'
 
 
 
-const Tab = createMaterialBottomTabNavigator()
+
+const Tab = createBottomTabNavigator();
 
 const Navbar = () => {
     return (
         <NavigationContainer>
         <Tab.Navigator
           initialRouteName="Feed"
-          activeColor="#FFFFFF"
-          barStyle={{ backgroundColor: '#F7482E', justifyContent:'space-between' }}
+          // activeColor="#FFFFFF"
+          tabBarOptions={{style:{backgroundColor:'#F7482E',height:56},activeTintColor:'#FFFFFF'}}
+          // barStyle={{ backgroundColor: '#F7482E', justifyContent:'space-between' }}
         >
           <Tab.Screen
             name="Feed"
@@ -26,7 +30,7 @@ const Navbar = () => {
             options={{
               tabBarLabel: 'Jurnal',
               tabBarIcon: ({ color }) => (
-                <JurnalIcon size={26} color={color} />
+                <JurnalIcon width={24} height={24} size={50} color={'red'} />
                 // <MaterialCommunityIcons name="home" color={color} size={26} />
               ),
             }}
@@ -43,7 +47,7 @@ const Navbar = () => {
           />
           <Tab.Screen
             name="Profile"
-            component={Home}
+            component={Profile}
             options={{
               tabBarLabel: 'Profile',
               tabBarIcon: ({ color }) => (

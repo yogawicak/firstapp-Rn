@@ -29,3 +29,6 @@ STRUKTUR FOLDER ATOMIC DESIGN
 #  |---organism //ketika component bersifat generik bsa digunakan dimana saja
 #  |---templates //ketika suatu halaman memiliki template yg sama 
 # |---pages //spesifik untuk pages tertentu ex.login page
+
+LIFECYCLE CLASS COMPONENT 
+Mountin - Updating - Unmounting
