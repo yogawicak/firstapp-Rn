@@ -1,19 +1,36 @@
 import React from 'react'
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
-import Home from '../../containers/pages/Home'
+import {Home,WelcomeScreen, Login} from '../../containers/pages/'
 import Navbar from '../../containers/organism/Navbar'
 
 const Stack = createStackNavigator()
 
 const Router = () => {
+    const nonHeader = {
+        headerShown:false
+    }
     return(
-        <Navbar />
-        // <NavigationContainer>
-        //     <Stack.Navigator screenOptions={{headerTitleAlign:'center'}}>
-        //         <Stack.Screen name="Home" component={Home}/ >
-        //     </Stack.Navigator>
-        // </NavigationContainer>
+        <Stack.Navigator>
+            {/* <Stack.Screen name="Home" component={Home}></Stack.Screen> */}
+            <Stack.Screen 
+                name="WelcomeScreen" 
+                component={WelcomeScreen}
+                options={nonHeader}
+            >
+            </Stack.Screen>
+            <Stack.Screen
+                name="Home"
+                component={Home}
+                options={nonHeader}
+            ></Stack.Screen>
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={nonHeader}
+            >
+            </Stack.Screen>
+        </Stack.Navigator>
     )
 } 
 

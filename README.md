@@ -15,20 +15,26 @@ PRINSIP ATOMIC DESIGN -->
     gabungan templates yang sudah memiliki data real
 
 STRUKTUR FOLDER ATOMIC DESIGN
-# --src
-# |---assets //asset aplikasi
-# |---components //untuk functional component
-#  |---atoms
-#  |---molekul
-# |---config
-#  |---router //routing tiap halaman
-#  |---redux
-#  |---services //folder calling API
-# |---utils //function yang bsa dilakukan berulang ulang ex.func convert date
-# |---container  //untuk class component
-#  |---organism //ketika component bersifat generik bsa digunakan dimana saja
-#  |---templates //ketika suatu halaman memiliki template yg sama 
-# |---pages //spesifik untuk pages tertentu ex.login page
++ --src
++ |---assets //asset aplikasi
++ |---components //untuk functional component
++  |---atoms
++  |---molekul
++ |---config
++  |---router //routing tiap halaman
++  |---redux
++  |---services //folder calling API
++ |---utils //function yang bsa dilakukan berulang ulang ex.func convert date
++ |---container  //untuk class component
++  |---organism //ketika component bersifat generik bsa digunakan dimana saja
++  |---templates //ketika suatu halaman memiliki template yg sama 
++ |---pages //spesifik untuk pages tertentu ex.login page
 
 LIFECYCLE CLASS COMPONENT 
-Mountin - Updating - Unmounting
+Mounting - Updating - Unmounting
+
+ada 2 cara melempar form ke backend dengan state
+1. state Local
+    Cons: dibuatnya mudah, pros:codingan jadi banyak
+2. menggunakan state management Redux
+    Cons: awal buatnya lumayan, pros:codingan jadi rapih
