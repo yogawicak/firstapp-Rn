@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View,Text, StyleSheet, TextInput, Button, TouchableOpacity} from 'react-native'
 import { Cycling_Login } from '../../../assets/logo/svg';
 import GoogleLogo from '../../../assets/logo/svg/google-logo'
@@ -6,15 +6,31 @@ import InstagramLogo from '../../../assets/logo/svg/instagram-logo'
 // import Bike from '../../../assets/logo/svg/Cycling'
 
 const Login = () => {
+    const [form, setForm] = useState({
+        username:'',
+        password:''        
+    })
+
+    const sendData = () => {
+        console.log('Data yang dikirim',form)
+    }
+
+    const onInputChange = (value) => {
+        console.log(value)
+        setForm({
+            ...form,
+            username: value
+        })
+    }
     return(
         <View style={style.container}>
             <View style={style.loginWrapper}>
                 <Text style={style.text}>Login</Text>
-                <TextInput style={style.textInput} placeholder="Username"/>
-                <TextInput style={style.textInput} placeholder="Password"/>
+                <TextInput style={style.textInput} value={form.username} onChangeText={(value) => onInputChange(value) }/>
+                <TextInput style={style.textInput} placeholder="Password" value={form.password}/>
                 <Text style={style.forgotPassText}>Forgot Password?</Text>
             </View>
-            <Button title="Sign In"/>
+            <Button title="Sign In" onPress={sendData}/>
             <Text style={{textAlign:'center',fontSize:12,fontWeight:'bold',marginTop:20}}>Or login with</Text>
             <View style={{justifyContent:'center',flexDirection:'row',marginTop:10}}>
                 <TouchableOpacity onPress={() => console.log('hello')}>

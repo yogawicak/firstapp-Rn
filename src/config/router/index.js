@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
-import {Home,WelcomeScreen, Login} from '../../containers/pages/'
+import {Home,WelcomeScreen,Login,Register} from '../../containers/pages/'
 import Navbar from '../../containers/organism/Navbar'
 
 const Stack = createStackNavigator()
@@ -29,6 +29,12 @@ const Router = () => {
                 component={Login}
                 options={nonHeader}
             >
+            </Stack.Screen>
+            <Stack.Screen
+                name="Register"
+                component={Register}
+                options={nonHeader}
+            >    
             </Stack.Screen>
         </Stack.Navigator>
     )
