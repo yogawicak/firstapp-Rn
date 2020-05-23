@@ -13,8 +13,8 @@ const WelcomeScreen = ({navigation}) => {
                 <BikingIcon width={320} height={225} style={{textAlign:'center'}}/>
                 <Text style={style.text}>Explore Your Hobbies</Text>
                 <Text style={{textAlign:'center',fontSize:14,marginBottom:30}}>You can explore your bike training with other people by joining some event</Text>
-                <Button style={{}} title="Register" onPress={() => navigation.navigate('Register')} />
-                <Button style={{marginTop:30}} title="Login" onPress={() => navigation.navigate('Login')}/>
+                <Button style={{}} title="Register" onPress={() => navigation.replace('Register')} />
+                <Button style={{marginTop:30}} title="Login" onPress={() => navigation.replace('Login')}/>
             </View>
     )}
 

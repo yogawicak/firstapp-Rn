@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "memu": "adb connect localhost:21503"
+    "memu": "adb connect localhost:21503",
+    "nox": "adb connect localhost:62001"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -19,6 +20,7 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-loading-spinner-overlay": "^1.1.0",
     "react-native-paper": "^3.10.1",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^1.0.0",

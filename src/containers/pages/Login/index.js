@@ -1,33 +1,58 @@
 import React, {useState} from 'react';
-import {View,Text, StyleSheet, TextInput, Button, TouchableOpacity} from 'react-native'
+import {View,Text, StyleSheet, TextInput, Button, TouchableOpacity, Alert} from 'react-native'
 import { Cycling_Login } from '../../../assets/logo/svg';
 import GoogleLogo from '../../../assets/logo/svg/google-logo'
 import InstagramLogo from '../../../assets/logo/svg/instagram-logo'
 // import Bike from '../../../assets/logo/svg/Cycling'
 
-const Login = () => {
+const Login = ({navigation}) => {
     const [form, setForm] = useState({
         username:'',
         password:''        
     })
+    const [result, setResult] = useState({})
 
-    const sendData = () => {
+    const sendData = async () => {
         console.log('Data yang dikirim',form)
+        let response = await fetch('https://basic-auth-express.herokuapp.com/auth/login',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form)
+        })
+        response = await response.json()
+        setResult(response)
+        console.log(result)
+        const status = () => {
+            if (response.status === 'fail') {
+                console.log('faillll')
+            }else{
+                navigation.replace('Home')
+            }
+        }
+        
+        return Alert.alert('Status',response.message,
+        [
+          { text: 'OK', onPress: status() }
+        ],
+        { cancelable: false })
     }
 
-    const onInputChange = (value) => {
+    const onInputChange = (value, input) => {
         console.log(value)
         setForm({
             ...form,
-            username: value
+            [input]: value
         })
     }
     return(
         <View style={style.container}>
+            {/* <Button title='hello' onPress={() => Alert.alert()}/> */}
             <View style={style.loginWrapper}>
                 <Text style={style.text}>Login</Text>
-                <TextInput style={style.textInput} value={form.username} onChangeText={(value) => onInputChange(value) }/>
-                <TextInput style={style.textInput} placeholder="Password" value={form.password}/>
+                <TextInput style={style.textInput} value={form.username} onChangeText={(value) => { onInputChange(value, 'username') }}/>
+                <TextInput style={style.textInput} placeholder="Password" value={form.password} onChangeText={(value) => onInputChange(value, 'password')} secureTextEntry={true}/>
                 <Text style={style.forgotPassText}>Forgot Password?</Text>
             </View>
             <Button title="Sign In" onPress={sendData}/>

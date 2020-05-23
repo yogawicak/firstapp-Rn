@@ -15,11 +15,11 @@ PRINSIP ATOMIC DESIGN -->
     gabungan templates yang sudah memiliki data real
 
 STRUKTUR FOLDER ATOMIC DESIGN
-+ --src
-+ |---assets //asset aplikasi
-+ |---components //untuk functional component
-+  |---atoms
-+  |---molekul
+= --src
+= |---assets //asset aplikasi
+= |---components //untuk functional component
+= |---atoms
+-  |---molekul
 + |---config
 +  |---router //routing tiap halaman
 +  |---redux
@@ -38,3 +38,7 @@ ada 2 cara melempar form ke backend dengan state
     Cons: dibuatnya mudah, pros:codingan jadi banyak
 2. menggunakan state management Redux
     Cons: awal buatnya lumayan, pros:codingan jadi rapih
+
+Context API React => untuk mempassing state ke komponen lain tanpa menggunakan props
+
+React Navigation v5
