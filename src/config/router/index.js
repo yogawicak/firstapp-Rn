@@ -1,59 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {Text} from 'react-native'
 import { createStackNavigator, HeaderTitle, } from '@react-navigation/stack'
-import {Home,WelcomeScreen,Login,Register,Profile} from '../../containers/pages/'
+import {WelcomeScreen,Login,Register,Profile, Home} from '../../containers/pages/'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 
 const Auth = createStackNavigator()
 const Tab = createBottomTabNavigator()
-const Stack = createStackNavigator()
+const RootStack = createStackNavigator()
 
-const LoginStackScreen = () => {
-    <LoginStack.Navigator>
-        <LoginStack.Screen name="Login" component={Login}/>
-    </LoginStack.Navigator>
+const navOptionHandler = () => ({
+    headerShown:false
+})
+
+const AuthStack = () => {
+    return(
+        <Auth.Navigator initialRouteName="Login" headerMode={"none"}>
+            <Auth.Screen name="Welcome Screen" component={WelcomeScreen}/>
+            <Auth.Screen name="Login" component={Login}/>
+            <Auth.Screen name="Register" component={Register}/>
+        </Auth.Navigator>
+    )
 }
 
-const HomeStackScreen = () => {
+const HomeStack = () => {
     return(
-    // <Stack.Navigator initialRouteName="Home">
-    //     <Stack.screen name="Home" component={Home} />
-    // </Stack.Navigator>
-    <Tab.Navigator independent={true}>
-        <Tab.screen name="Home" component={Home} />
+    <Tab.Navigator>
+        <Tab.Screen name="Profile" component={Profile}></Tab.Screen>
     </Tab.Navigator>
     )
 }
 
-const ProfileStackScreen = () => {
-    return(
-        // <ProfileStack.Navigator>
-            <ProfileStack.screen name="Home" component={Profile} />
-        // </ProfileStack.Navigator>
+export default class Router extends Component {
+    render(){
+        return(                 
+                <RootStack.Navigator headerMode={"none"} initialRouteName="Home Stack">
+                    <RootStack.Screen name="Auth Stack" component={AuthStack}/>
+                    <RootStack.Screen name="Home Stack" component={HomeStack}/>
+                </RootStack.Navigator>
         )
-}
-
-// const Home = () => {
-//     return(
-//         <Vi
-//     )
-// }
-
-const Router = () => {
-    const nonHeader = {
-        headerShown:false
     }
-    return(        
-            <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeStackScreen}/>
-                {/* <Tab.Screen name="Profile" component={ProfileStackScreen}/> */}
-            </Stack.Navigator>
-        // <Auth.Navigator>
-        //     <Auth.Screen name="WelcomeScreen" component={WelcomeScreen} options={nonHeader} />
-        //     <Auth.Screen name="Login" component={Login} options={nonHeader} />
-        //     <Auth.Screen name="Register" component={Register} options={nonHeader} /> 
-        // </Auth.Navigator>
-    )
-} 
-
-export default Router
+}

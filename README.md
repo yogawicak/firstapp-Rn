@@ -42,3 +42,8 @@ ada 2 cara melempar form ke backend dengan state
 Context API React => untuk mempassing state ke komponen lain tanpa menggunakan props
 
 React Navigation v5
+
+
+state vs props
+props di pass in component (di handel diluar komponen)
+state menghandel di dalam komponen

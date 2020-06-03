@@ -3,7 +3,7 @@ import {View,Text, StyleSheet, TextInput, Button, TouchableOpacity, Alert} from 
 import { Cycling_Login } from '../../../assets/logo/svg';
 import GoogleLogo from '../../../assets/logo/svg/google-logo'
 import InstagramLogo from '../../../assets/logo/svg/instagram-logo'
-// import Bike from '../../../assets/logo/svg/Cycling'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const Login = ({navigation}) => {
     const [form, setForm] = useState({
@@ -28,13 +28,12 @@ const Login = ({navigation}) => {
             if (response.status === 'fail') {
                 console.log('faillll')
             }else{
-                navigation.replace('Home')
+                navigation.replace('Home Stack',{screen : 'Profile'})
             }
-        }
-        
+        } 
         return Alert.alert('Status',response.message,
         [
-          { text: 'OK', onPress: status() }
+          { text: 'OK', onPress: () => status() }
         ],
         { cancelable: false })
     }
@@ -48,7 +47,6 @@ const Login = ({navigation}) => {
     }
     return(
         <View style={style.container}>
-            {/* <Button title='hello' onPress={() => Alert.alert()}/> */}
             <View style={style.loginWrapper}>
                 <Text style={style.text}>Login</Text>
                 <TextInput style={style.textInput} value={form.username} onChangeText={(value) => { onInputChange(value, 'username') }}/>

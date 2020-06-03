@@ -29,12 +29,8 @@ const Register = () => {
         SetisLoading(false)
         return Alert.alert(response.message)
     }
-    // const testSpinner = () => {
-    //     setTimeout(() => {setSpinner(true)},1)
-        
-    // }
+
     console.log(isLoading)
-    // setTimeout(() => {setSpinner(false)},3000)
 
     const onInputChange = (value, input) => {
         setForm({
